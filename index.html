@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ryuu Knight — Traducción al español</title>
+<meta name="description" content="Traducción al español de Haou Taikei Ryuu Knight – Lord of Paladin (Super Nintendo). Progreso y descarga del parche.">
+<style>
+  :root{
+    --win1:#4b4aa8; --win2:#34338a; --win3:#26256b;
+    --edge:#e9e7ff; --edge2:#8d8bd8; --text:#ffffff; --dim:#d4d2ff; --gold:#ffd23f; --orange:#ff8a1c;
+  }
+  *{box-sizing:border-box}
+  html{background:#1c2a12}
+  body{
+    margin:0; min-height:100vh; color:var(--text);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:
+      radial-gradient(circle at 12% 18%,rgba(40,60,20,.0) 0 60px,transparent 61px),
+      repeating-linear-gradient(45deg,rgba(0,0,0,.06) 0 6px,transparent 6px 12px),
+      linear-gradient(180deg,#0f3b3b 0,#1e5148 260px,#5f6b2c 520px,#8a7d3c 900px,#c9b675 1300px,#d9c88c 100%);
+  }
+  main{max-width:720px; margin:0 auto; padding:36px 16px 60px}
+  header{text-align:center; margin-bottom:30px}
+  header img{width:100%; max-width:560px; height:auto; image-rendering:pixelated; filter:drop-shadow(0 6px 8px rgba(0,0,0,.45))}
+  header h1{margin:8px 0 0; font-size:22px; letter-spacing:.04em; color:var(--gold);
+    text-shadow:2px 2px 0 #7a2e00,0 0 10px rgba(0,0,0,.6)}
+  header p{margin:6px 0 0; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,.8)}
+
+  /* nombre de quien habla, como en los diálogos: ◆Nombre◆ */
+  h2{margin:34px 0 8px; font:700 17px/1.4 system-ui,sans-serif; letter-spacing:.06em; color:#fff;
+    text-shadow:2px 2px 0 var(--win3)}
+  h2::before,h2::after{content:"◆"; color:var(--gold); margin:0 4px}
+
+  /* ventana de texto del juego */
+  .box{
+    position:relative; padding:18px 20px 22px; border-radius:6px;
+    background:linear-gradient(180deg,var(--win1),var(--win2) 55%,var(--win3));
+    border:3px solid var(--edge); outline:2px solid var(--edge2); outline-offset:-7px;
+    box-shadow:0 0 0 2px #15144a,0 10px 24px rgba(0,0,0,.45);
+    text-shadow:1px 1px 0 #15144a;
+  }
+  .box::after{ /* triángulo de "siguiente" */
+    content:""; position:absolute; right:14px; bottom:8px; border:7px solid transparent; border-top:9px solid var(--edge); border-bottom:0;
+  }
+
+  .shots{display:grid; grid-template-columns:repeat(2,1fr); gap:14px}
+  .shot{position:relative; margin:0; aspect-ratio:8/7; overflow:hidden; border-radius:4px; background:#000;
+    border:3px solid var(--edge2); box-shadow:0 8px 18px rgba(0,0,0,.4)}
+  .shot img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .shot .empty{position:absolute; inset:0; display:grid; place-items:center; font-size:13px; color:var(--dim)}
+  @media (max-width:480px){ .shots{grid-template-columns:1fr} }
+
+  .total{display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:8px}
+  .total b{font-size:40px; line-height:1; color:var(--gold)}
+  .total span{color:var(--dim)}
+  .bar{height:12px; background:#15144a; border:2px solid var(--edge); border-radius:7px; overflow:hidden}
+  .bar i{display:block; height:100%; width:0; background:linear-gradient(#ffe066,#ff8a1c); transition:width 1s ease}
+  .row{margin-top:16px}
+  .row div.h{display:flex; justify-content:space-between; gap:10px; font-size:15px; margin-bottom:5px}
+  .row small{color:var(--dim); white-space:nowrap}
+  table{width:100%; border-collapse:collapse; margin-top:4px}
+  td{padding:6px 0; border-bottom:1px solid rgba(233,231,255,.25); vertical-align:top}
+  tr:last-child td{border:0}
+  td:first-child{color:var(--gold); width:38%; padding-right:10px}
+  .btn{display:inline-block; background:linear-gradient(#ffb347,#e2611a); color:#fff; text-decoration:none; padding:12px 22px;
+    border:2px solid var(--edge); border-radius:6px; font-weight:700; margin-bottom:16px; text-shadow:1px 1px 0 #7a2e00}
+  .btn:hover{filter:brightness(1.1)}
+  .btn.alt{background:linear-gradient(#6d6be0,#3a39a0); text-shadow:1px 1px 0 #15144a}
+  .news{margin:14px 0 4px; color:var(--gold); font-weight:700}
+  ul,ol{margin:0; padding-left:22px}
+  li{margin:2px 0}
+  .box a:not(.btn){color:#ffe9a0}
+  code{background:rgba(0,0,0,.25); padding:1px 5px; border-radius:3px; font-size:.92em}
+  .dim{color:var(--dim)}
+  footer{margin-top:40px; text-align:center; color:#3a3014; font-size:13px}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="logo.png" alt="Haou Taikei Ryuu Knight">
+    <h1>Lord of Paladin · Traducción al español</h1>
+    <p>Proyecto de traducción fan de Haou Taikei Ryuu Knight (Super Nintendo) al español por Fveralv. Progreso y descarga del parche.</p>
+  </header>
+
+  <section id="capturas">
+    <h2>Capturas de pantalla</h2>
+    <div class="box">
+      <div class="shots">
+        <figure class="shot"><div class="empty">img/captura1.png</div><img src="img/captura1.png" alt="Pantalla de título en español" onerror="this.remove()"></figure>
+        <figure class="shot"><div class="empty">img/captura2.png</div><img src="img/captura2.png" alt="Diálogo con el Gran Sabio Naji" onerror="this.remove()"></figure>
+        <figure class="shot"><div class="empty">img/captura3.png</div><img src="img/captura3.png" alt="Aparece el Ryu Knight" onerror="this.remove()"></figure>
+        <figure class="shot"><div class="empty">img/captura4.png</div><img src="img/captura4.png" alt="El camino del Paladín" onerror="this.remove()"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="progreso">
+    <h2>Progreso</h2>
+    <div class="box">
+      <div class="total"><b id="totPct">0 %</b><span><span id="totNum"></span> / <span id="totAll"></span> textos</span></div>
+      <div class="bar"><i id="totBar"></i></div>
+      <div id="areas"></div>
+    </div>
+  </section>
+
+  <section id="parche">
+    <h2>Parche</h2>
+    <div class="box">
+      <a class="btn" href="RyuuKnight_ES.v1.0.bps" download>Descargar RyuuKnight_ES.v1.0.bps</a>
+      <table>
+        <tr><td>Versión</td><td>1.0</td></tr>
+        <tr><td>Actualizado</td><td>10/11/2026</td></tr>
+        <tr><td>Formato</td><td>BPS</td></tr>
+        <tr><td>Juego original</td><td>Haou Taikei Ryuu Knight – Lord of Paladin (Japón, Rev 1) · sin cabecera · CRC32 <code>2740560B</code></td></tr>
+        <tr><td>Basado en</td><td>Parche inglés de <a href="https://gametranslate.us/translations/haou-taikei-ryuu-knight-english-patch/">Game Translate</a> (no hace falta aplicarlo antes)</td></tr>
+      </table>
+      <p class="news">Cómo aplicarlo</p>
+      <ol>
+        <li>Abre <a href="https://www.marcrobledo.com/RomPatcher.js/">Rom Patcher JS</a>, Floating IPS o MultiPatch.</li>
+        <li>Elige tu ROM japonesa (haz antes una copia) y el parche <code>.bps</code>.</li>
+        <li>Aplica y juega la ROM resultante en tu emulador.</li>
+      </ol>
+      <p class="news">Novedades de la versión 1.0</p>
+      <ul>
+        <li>Primera versión completa: los 1227 mensajes de diálogo en español.</li>
+        <li>Nombres de objetos, magias, lugares y los 12 títulos de episodio redibujados con la fuente del juego.</li>
+        <li>Menús e interfaz: sistema, configuración, tiendas, Sí/No y avisos.</li>
+        <li>Pantalla de título en español («NUEVO JUEGO / CONTINUAR») con el estilo original.</li>
+        <li>Acentos, eñe y signos de apertura (á é í ó ú ü ñ Á É Í Ó Ñ ¿ ¡).</li>
+      </ul>
+      <p class="dim">El parche solo contiene las diferencias con la ROM original. No incluye el juego: necesitas tu propia copia legal.</p>
+      <p class="dim">¿Te gusta lo que hago? Si crees que mi trabajo merece la pena, puedes apoyarme invitándome a un café. ¡Cualquier aporte me ayuda a seguir creando! ☕</p>
+      <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support me on Ko-fi', '#72a4f2', 'S6P527KUBF');kofiwidget2.draw();</script>
+    </div>
+  </section>
+
+  <section id="herramienta">
+    <h2>Herramientas</h2>
+    <div class="box">
+      <a class="btn alt" href="https://github.com/FJVERALV/Traduccion_Haou_aikei_Ryuu_Knight">Ver las herramientas en GitHub</a>
+      <p style="margin:0 0 10px">Las mismas herramientas con las que se ha hecho la traducción (Python 3 + Pillow). Con ellas puedes revisar o mejorar esta traducción, o hacer otra a cualquier idioma:</p>
+      <ul>
+        <li>Extraen e insertan diálogos, nombres, menús y gráficos, y avisan si una línea no cabe en la ventana del juego.</li>
+        <li>Redibujan automáticamente los nombres y menús (que en el juego son imágenes) con la fuente original.</li>
+        <li>Compresor LZSS propio y creación del parche BPS verificado.</li>
+        <li>Con tu ROM japonesa, <code>python tools/reconstruir.py</code> genera exactamente este parche.</li>
+      </ul>
+      <p style="margin:12px 0 0">Código fuente y documentación técnica (mapa de la ROM, punteros, compresión, fuente): <a href="https://github.com/FJVERALV/Traduccion_Haou_aikei_Ryuu_Knight">repositorio en GitHub</a> · <a href="https://github.com/FJVERALV/Parche-traduccion-Ryuu-Knight/blob/main/DOCUMENTACION.md">DOCUMENTACION.md</a></p>
+    </div>
+  </section>
+
+  <footer>Proyecto de traducción fan por Fveralv. No se distribuye el juego. Haou Taikei Ryuu Knight es marca de sus respectivos propietarios.</footer>
+</main>
+
+<script>
+  const DATA = {
+    areas: [
+      { name: "Diálogos",                          done: 1227, total: 1227, text: true },
+      { name: "Objetos, magias y lugares",         done: 163,  total: 163,  text: true },
+      { name: "Menús e interfaz",                  done: 56,   total: 56,   text: true },
+      { name: "Pantalla de título",                done: 2,    total: 2,    text: true },
+      { name: "Caracteres especiales (á é í ó ú ü ñ Á É Í Ó Ñ ¿ ¡)", done: 14, total: 14, text: false }
+    ]
+  };
+  const fmt = n => n.toLocaleString("es-ES");
+  const pct = (a,b) => b ? Math.round(a*100/b) : 0;
+
+  const t = DATA.areas.filter(a=>a.text);
+  const d = t.reduce((s,a)=>s+a.done,0), all = t.reduce((s,a)=>s+a.total,0);
+  document.getElementById("totPct").textContent = pct(d,all) + " %";
+  document.getElementById("totNum").textContent = fmt(d);
+  document.getElementById("totAll").textContent = fmt(all);
+
+  const box = document.getElementById("areas");
+  const bars = [document.getElementById("totBar")];
+  const vals = [pct(d,all)];
+  DATA.areas.forEach(a=>{
+    const p = pct(a.done,a.total);
+    const r = document.createElement("div"); r.className = "row";
+    r.innerHTML = '<div class="h"><span>'+a.name+'</span><small>'+fmt(a.done)+' / '+fmt(a.total)+' · '+p+' %</small></div><div class="bar"><i></i></div>';
+    box.appendChild(r);
+    bars.push(r.querySelector("i")); vals.push(p);
+  });
+  requestAnimationFrame(()=>setTimeout(()=>bars.forEach((b,i)=>b.style.width=vals[i]+"%"),50));
+</script>
+</body>
+</html>
